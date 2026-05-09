@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Admin StudyFlow - Monitoring Akademik</title>
+
+  <meta
+    name="description"
+    content="Halaman admin StudyFlow untuk memantau tugas mahasiswa, progress, deadline, mata kuliah, target harian, study planner, focus timer, catatan materi, refleksi belajar, statistik produktivitas, dan riwayat aktivitas."
+  />
+
+  <link rel="stylesheet" href="style.css?v=16" />
+  <script src="admin.js?v=2" defer></script>
+</head>
+
+<body class="admin-body">
+
+  <div class="admin-shell">
+
+    <!-- ADMIN SIDEBAR -->
+    <aside class="admin-sidebar">
+      <div class="admin-brand">
+        <div class="admin-brand-logo">SF</div>
+        <div>
+          <h1>StudyFlow</h1>
+          <p>Admin Panel</p>
+        </div>
+      </div>
+
+      <nav class="admin-menu">
+        <a href="#admin-dashboard" class="admin-menu-item active">
+          <span>AD</span>
+          <div>
+            <strong>Dashboard</strong>
+            <small>Ringkasan sistem</small>
+          </div>
+        </a>
+
+        <a href="#admin-tasks" class="admin-menu-item">
+          <span>TK</span>
+          <div>
+            <strong>Data Tugas</strong>
+            <small>Monitoring tugas</small>
+          </div>
+        </a>
+
+        <a href="#admin-academic" class="admin-menu-item">
+          <span>AK</span>
+          <div>
+            <strong>Akademik</strong>
+            <small>Matkul & planner</small>
+          </div>
+        </a>
+
+        <a href="#admin-productivity" class="admin-menu-item">
+          <span>PR</span>
+          <div>
+            <strong>Produktivitas</strong>
+            <small>Fokus & refleksi</small>
+          </div>
+        </a>
+
+        <a href="#admin-notes" class="admin-menu-item">
+          <span>CN</span>
+          <div>
+            <strong>Catatan</strong>
+            <small>Materi terbaru</small>
+          </div>
+        </a>
+
+        <a href="#admin-history" class="admin-menu-item">
+          <span>RH</span>
+          <div>
+            <strong>Riwayat</strong>
+            <small>Aktivitas sistem</small>
+          </div>
+        </a>
+
+        <a href="app.html" class="admin-menu-item">
+          <span>US</span>
+          <div>
+            <strong>User App</strong>
+            <small>Halaman mahasiswa</small>
+          </div>
+        </a>
+
+        <a href="index.html" class="admin-menu-item">
+          <span>HM</span>
+          <div>
+            <strong>Beranda</strong>
+            <small>Landing page</small>
+          </div>
+        </a>
+      </nav>
+
+      <div class="admin-sidebar-card">
+        <p>Project ANSI</p>
+        <strong>Sistem Monitoring Tugas Kuliah</strong>
+        <small>Admin membaca data dari localStorage browser yang sama.</small>
+      </div>
+    </aside>
+
+    <!-- ADMIN MAIN -->
+    <main class="admin-main">
+
+      <!-- TOP BAR -->
+      <header class="admin-topbar">
+        <div>
+          <p class="admin-eyebrow">Administrator</p>
+          <h2>Panel Monitoring StudyFlow</h2>
+        </div>
+
+        <div class="admin-topbar-actions">
+          <button type="button" class="admin-outline-btn" id="adminRefreshBtn">
+            Refresh Data
+          </button>
+
+          <button type="button" class="admin-danger-btn hidden" id="adminLogoutBtn">
+            Logout
+          </button>
+
+          <div class="admin-profile">
+            <div class="admin-avatar">A</div>
+            <div>
+              <strong>Admin</strong>
+              <small>StudyFlow Control</small>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- LOGIN SECTION -->
+      <section class="admin-login-section" id="adminLoginSection">
+        <div class="admin-login-card">
+          <div class="admin-login-icon">SF</div>
+
+          <p class="admin-eyebrow">Login Admin</p>
+          <h3>Masuk ke Panel Admin</h3>
+          <p>
+            Halaman ini digunakan untuk memantau data tugas, deadline, progress,
+            target belajar, focus timer, catatan materi, refleksi, statistik,
+            dan riwayat aktivitas pada aplikasi StudyFlow.
+          </p>
+
+          <form id="adminLoginForm" class="admin-login-form">
+            <div class="admin-form-group">
+              <label for="adminUsername">Username</label>
+              <input
+                type="text"
+                id="adminUsername"
+                placeholder="Masukkan username admin"
+                autocomplete="username"
+                required
+              />
+            </div>
+
+            <div class="admin-form-group">
+              <label for="adminPassword">Password</label>
+              <input
+                type="password"
+                id="adminPassword"
+                placeholder="Masukkan password admin"
+                autocomplete="current-password"
+                required
+              />
+            </div>
+
+            <button type="submit" class="admin-primary-btn">
+              Masuk Admin
+            </button>
+          </form>
+
+          <div class="admin-login-hint">
+            <strong>Akun demo:</strong>
+            <span>Username: admin</span>
+            <span>Password: studyflow123</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- DASHBOARD SECTION -->
+      <section class="admin-dashboard hidden" id="adminDashboardSection">
+
+        <!-- HERO -->
+        <section class="admin-hero" id="admin-dashboard">
+          <div>
+            <p class="admin-eyebrow">Overview</p>
+            <h3>Monitoring Akademik StudyFlow</h3>
+            <p>
+              Pantau tugas mahasiswa, deadline, progress, mata kuliah, target harian,
+              jadwal belajar, sesi fokus, catatan materi, refleksi belajar,
+              dan statistik produktivitas dalam satu panel admin.
+            </p>
+          </div>
+
+          <div class="admin-hero-badge">
+            <span>Status Sistem</span>
+            <strong>Aktif</strong>
+          </div>
+        </section>
+
+        <!-- STATS -->
+        <section class="admin-stats-grid">
+          <article class="admin-stat-card">
+            <span>Total Tugas</span>
+            <strong id="adminTotalTasks">0</strong>
+            <small>Semua data tugas</small>
+          </article>
+
+          <article class="admin-stat-card">
+            <span>Belum Selesai</span>
+            <strong id="adminActiveTasks">0</strong>
+            <small>Tugas masih aktif</small>
+          </article>
+
+          <article class="admin-stat-card">
+            <span>Selesai</span>
+            <strong id="adminDoneTasks">0</strong>
+            <small>Tugas selesai</small>
+          </article>
+
+          <article class="admin-stat-card warning">
+            <span>Deadline Dekat</span>
+            <strong id="adminUrgentTasks">0</strong>
+            <small>0-3 hari lagi</small>
+          </article>
+
+          <article class="admin-stat-card danger">
+            <span>Terlambat</span>
+            <strong id="adminOverdueTasks">0</strong>
+            <small>Lewat deadline</small>
+          </article>
+
+          <article class="admin-stat-card primary">
+            <span>Prioritas Tinggi</span>
+            <strong id="adminHighPriorityTasks">0</strong>
+            <small>Perlu perhatian</small>
+          </article>
+
+          <article class="admin-stat-card">
+            <span>Mata Kuliah</span>
+            <strong id="adminTotalSubjects">0</strong>
+            <small>Kategori akademik</small>
+          </article>
+
+          <article class="admin-stat-card">
+            <span>Target Hari Ini</span>
+            <strong id="adminTodayTargets">0</strong>
+            <small>Target harian</small>
+          </article>
+
+          <article class="admin-stat-card">
+            <span>Jadwal Belajar</span>
+            <strong id="adminStudyPlans">0</strong>
+            <small>Study planner aktif</small>
+          </article>
+
+          <article class="admin-stat-card">
+            <span>Menit Fokus</span>
+            <strong id="adminFocusMinutes">0</strong>
+            <small>Total minggu ini</small>
+          </article>
+
+          <article class="admin-stat-card">
+            <span>Catatan Materi</span>
+            <strong id="adminTotalNotes">0</strong>
+            <small>Total catatan</small>
+          </article>
+
+          <article class="admin-stat-card">
+            <span>Skor Refleksi</span>
+            <strong id="adminAverageReflection">0</strong>
+            <small>Rata-rata /10</small>
+          </article>
+        </section>
+
+        <!-- INSIGHT PANEL -->
+        <section class="admin-action-panel admin-insight-panel">
+          <div>
+            <p class="admin-eyebrow">Admin Insight</p>
+            <h3>Kesimpulan Monitoring</h3>
+            <p id="adminInsightText">
+              Insight akan muncul setelah data StudyFlow tersedia.
+            </p>
+          </div>
+
+          <button type="button" class="admin-primary-btn" id="adminExportBtn">
+            Export Laporan CSV
+          </button>
+        </section>
+
+        <!-- TASK MONITORING -->
+        <section class="admin-panel" id="admin-tasks">
+          <div class="admin-panel-header">
+            <div>
+              <p class="admin-eyebrow">Data Tugas</p>
+              <h3>Monitoring Tugas Mahasiswa</h3>
+            </div>
+
+            <div class="admin-filter-group">
+              <input
+                type="text"
+                id="adminSearchInput"
+                placeholder="Cari tugas atau mata kuliah..."
+              />
+
+              <select id="adminStatusFilter">
+                <option value="Semua">Semua Status</option>
+                <option value="Belum Selesai">Belum Selesai</option>
+                <option value="Selesai">Selesai</option>
+              </select>
+
+              <select id="adminPriorityFilter">
+                <option value="Semua">Semua Prioritas</option>
+                <option value="Tinggi">Tinggi</option>
+                <option value="Sedang">Sedang</option>
+                <option value="Rendah">Rendah</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="admin-table-wrap">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Nama Tugas</th>
+                  <th>Mata Kuliah</th>
+                  <th>Deadline</th>
+                  <th>Prioritas</th>
+                  <th>Progress</th>
+                  <th>Status</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+
+              <tbody id="adminTaskTable"></tbody>
+            </table>
+          </div>
+
+          <div class="admin-empty hidden" id="adminEmptyTasks">
+            <div>SF</div>
+            <h4>Belum ada data tugas</h4>
+            <p>
+              Data tugas akan muncul setelah user menambahkan tugas melalui halaman aplikasi mahasiswa.
+            </p>
+          </div>
+        </section>
+
+        <!-- ACADEMIC MONITORING -->
+        <section class="admin-panel" id="admin-academic">
+          <div class="admin-panel-header">
+            <div>
+              <p class="admin-eyebrow">Monitoring Akademik</p>
+              <h3>Mata Kuliah, Target Harian, dan Study Planner</h3>
+            </div>
+          </div>
+
+          <div class="admin-monitor-grid">
+            <article class="admin-monitor-card">
+              <div class="admin-monitor-header">
+                <h4>Mata Kuliah</h4>
+                <span id="adminSubjectCountBadge">0 data</span>
+              </div>
+
+              <div id="adminSubjectList" class="admin-compact-list"></div>
+
+              <div class="admin-empty compact hidden" id="adminEmptySubjects">
+                <div>MK</div>
+                <h4>Belum ada mata kuliah</h4>
+                <p>Data mata kuliah akan muncul setelah ditambahkan di halaman mahasiswa.</p>
+              </div>
+            </article>
+
+            <article class="admin-monitor-card">
+              <div class="admin-monitor-header">
+                <h4>Target Harian</h4>
+                <span id="adminTargetCountBadge">0 data</span>
+              </div>
+
+              <div id="adminTargetList" class="admin-compact-list"></div>
+
+              <div class="admin-empty compact hidden" id="adminEmptyTargets">
+                <div>TG</div>
+                <h4>Belum ada target</h4>
+                <p>Target harian akan muncul setelah user menambahkannya.</p>
+              </div>
+            </article>
+
+            <article class="admin-monitor-card">
+              <div class="admin-monitor-header">
+                <h4>Study Planner</h4>
+                <span id="adminPlannerCountBadge">0 data</span>
+              </div>
+
+              <div id="adminPlannerList" class="admin-compact-list"></div>
+
+              <div class="admin-empty compact hidden" id="adminEmptyPlanner">
+                <div>PL</div>
+                <h4>Belum ada jadwal</h4>
+                <p>Jadwal belajar akan muncul setelah dibuat di Study Planner.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- PRODUCTIVITY MONITORING -->
+        <section class="admin-panel" id="admin-productivity">
+          <div class="admin-panel-header">
+            <div>
+              <p class="admin-eyebrow">Monitoring Produktivitas</p>
+              <h3>Focus Timer dan Refleksi Belajar</h3>
+            </div>
+          </div>
+
+          <div class="admin-monitor-grid two">
+            <article class="admin-monitor-card">
+              <div class="admin-monitor-header">
+                <h4>Sesi Fokus Terbaru</h4>
+                <span id="adminFocusCountBadge">0 data</span>
+              </div>
+
+              <div id="adminFocusList" class="admin-compact-list"></div>
+
+              <div class="admin-empty compact hidden" id="adminEmptyFocus">
+                <div>FT</div>
+                <h4>Belum ada sesi fokus</h4>
+                <p>Sesi fokus akan muncul setelah user menyelesaikan Focus Timer.</p>
+              </div>
+            </article>
+
+            <article class="admin-monitor-card">
+              <div class="admin-monitor-header">
+                <h4>Refleksi Terbaru</h4>
+                <span id="adminReflectionCountBadge">0 data</span>
+              </div>
+
+              <div id="adminReflectionList" class="admin-compact-list"></div>
+
+              <div class="admin-empty compact hidden" id="adminEmptyReflections">
+                <div>RF</div>
+                <h4>Belum ada refleksi</h4>
+                <p>Refleksi belajar akan muncul setelah user mengisinya.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- NOTES -->
+        <section class="admin-panel" id="admin-notes">
+          <div class="admin-panel-header">
+            <div>
+              <p class="admin-eyebrow">Catatan Materi</p>
+              <h3>Catatan Materi Terbaru</h3>
+            </div>
+          </div>
+
+          <div id="adminNoteList" class="admin-note-grid"></div>
+
+          <div class="admin-empty hidden" id="adminEmptyNotes">
+            <div>CN</div>
+            <h4>Belum ada catatan materi</h4>
+            <p>
+              Catatan materi akan tampil di sini setelah user menambahkan catatan dari halaman aplikasi.
+            </p>
+          </div>
+        </section>
+
+        <!-- HISTORY -->
+        <section class="admin-panel" id="admin-history">
+          <div class="admin-panel-header">
+            <div>
+              <p class="admin-eyebrow">Riwayat Sistem</p>
+              <h3>Aktivitas Terbaru</h3>
+            </div>
+          </div>
+
+          <div class="admin-history-list" id="adminHistoryList"></div>
+
+          <div class="admin-empty hidden" id="adminEmptyHistory">
+            <div>RH</div>
+            <h4>Belum ada riwayat</h4>
+            <p>
+              Aktivitas seperti tambah, edit, hapus, dan ubah status tugas akan tampil di sini.
+            </p>
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <!-- ADMIN TOAST -->
+  <div class="admin-toast hidden" id="adminToast">
+    <span id="adminToastMessage">Berhasil</span>
+  </div>
+
+</body>
+</html>

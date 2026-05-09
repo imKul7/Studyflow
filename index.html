@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>StudyFlow - Aplikasi Monitoring Tugas Kuliah</title>
+
+  <meta
+    name="description"
+    content="StudyFlow adalah aplikasi monitoring tugas kuliah untuk membantu siswa dan mahasiswa mencatat tugas, memantau deadline, mengatur prioritas, membuat jadwal belajar, menggunakan focus timer, menyimpan catatan, refleksi belajar, statistik produktivitas, laporan PDF, dan backup data."
+  />
+
+  <link rel="stylesheet" href="style.css?v=15" />
+</head>
+
+<body>
+
+  <!-- LANDING NAVBAR -->
+  <header class="lp-navbar">
+    <a href="#home" class="lp-brand" aria-label="StudyFlow Home">
+      <span class="lp-brand-logo">SF</span>
+
+      <span class="lp-brand-text">
+        <strong>StudyFlow</strong>
+        <small>Smart Academic Productivity</small>
+      </span>
+    </a>
+
+    <button
+      class="lp-menu-toggle"
+      id="landingMenuToggle"
+      type="button"
+      aria-label="Buka menu navigasi"
+    >
+      ☰
+    </button>
+
+    <nav class="lp-nav-menu" id="landingNavMenu">
+      <a href="#home">Beranda</a>
+      <a href="#problem">Masalah</a>
+      <a href="#fitur">Fitur</a>
+      <a href="#alur">Cara Kerja</a>
+      <a href="#preview">Preview</a>
+      <a href="admin.html">Admin</a>
+      <a href="app.html" class="lp-nav-button">Buka Aplikasi</a>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <main class="landing-page" id="home">
+    <section class="landing-hero">
+      <div class="hero-left">
+        <div class="landing-badge-row">
+          <span class="landing-badge">Project ANSI</span>
+          <span class="landing-badge ghost">Untuk Siswa & Mahasiswa</span>
+        </div>
+
+        <p class="landing-eyebrow">Aplikasi Monitoring Tugas Kuliah</p>
+
+        <h1>
+          Kelola tugas, deadline, jadwal belajar, dan produktivitas akademik dalam satu dashboard.
+        </h1>
+
+        <p class="landing-description">
+          StudyFlow membantu mahasiswa mencatat tugas, memantau deadline,
+          menentukan prioritas, membuat target harian, menyusun study planner,
+          menggunakan focus timer, menyimpan catatan materi, mengisi refleksi,
+          melihat statistik, dan membuat laporan PDF secara praktis.
+        </p>
+
+        <div class="landing-actions">
+          <a href="app.html" class="btn-landing-primary">
+            Buka Dashboard
+          </a>
+
+          <a href="#fitur" class="btn-landing-secondary">
+            Jelajahi Fitur
+          </a>
+        </div>
+
+        <div class="landing-highlights">
+          <div>
+            <strong>24+</strong>
+            <span>Fitur akademik</span>
+          </div>
+
+          <div>
+            <strong>PDF</strong>
+            <span>Laporan produktivitas</span>
+          </div>
+
+          <div>
+            <strong>Backup</strong>
+            <span>Export & import data</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="app-preview-card">
+          <div class="preview-topbar">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <div class="preview-content">
+            <div class="preview-header">
+              <div>
+                <small>StudyFlow Dashboard</small>
+                <h3>Monitoring Akademik</h3>
+              </div>
+
+              <span class="preview-badge">Live</span>
+            </div>
+
+            <div class="preview-stats">
+              <div>
+                <small>Total</small>
+                <strong>12</strong>
+              </div>
+
+              <div>
+                <small>Selesai</small>
+                <strong>8</strong>
+              </div>
+
+              <div>
+                <small>Fokus</small>
+                <strong>120m</strong>
+              </div>
+            </div>
+
+            <div class="preview-task">
+              <div>
+                <strong>Project ANSI</strong>
+                <small>Deadline: 25 April • Prioritas Tinggi</small>
+              </div>
+
+              <span>Tinggi</span>
+            </div>
+
+            <div class="preview-task secondary">
+              <div>
+                <strong>Catatan Materi</strong>
+                <small>Use Case Diagram • Refleksi 8/10</small>
+              </div>
+
+              <span>Aktif</span>
+            </div>
+
+            <div class="preview-progress">
+              <div>
+                <small>Progress Produktivitas</small>
+                <strong>75%</strong>
+              </div>
+
+              <div class="preview-progress-bar">
+                <span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="floating-card card-deadline">
+          <strong>Reminder</strong>
+          <span>Deadline mendekat</span>
+        </div>
+
+        <div class="floating-card card-progress">
+          <strong>PDF</strong>
+          <span>Laporan siap diunduh</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- PROBLEM SECTION -->
+  <section class="landing-section problem-section" id="problem">
+    <div class="section-heading">
+      <p class="landing-eyebrow">Masalah yang Diselesaikan</p>
+      <h2>Mahasiswa sering punya banyak tugas, tapi tidak semua terpantau dengan baik.</h2>
+      <p>
+        StudyFlow dibuat untuk membantu mahasiswa mengurangi risiko lupa deadline,
+        tugas menumpuk, bingung menentukan prioritas, dan belajar tanpa rencana.
+      </p>
+    </div>
+
+    <div class="problem-grid">
+      <article class="problem-card">
+        <span>01</span>
+        <h3>Deadline Sering Terlewat</h3>
+        <p>
+          Tugas dari banyak mata kuliah membuat deadline sulit diingat jika tidak
+          dicatat dalam sistem yang rapi.
+        </p>
+      </article>
+
+      <article class="problem-card">
+        <span>02</span>
+        <h3>Bingung Menentukan Prioritas</h3>
+        <p>
+          Mahasiswa sering tidak tahu tugas mana yang harus dikerjakan lebih dulu
+          ketika semua terasa penting.
+        </p>
+      </article>
+
+      <article class="problem-card">
+        <span>03</span>
+        <h3>Progress Tidak Terdokumentasi</h3>
+        <p>
+          Tanpa progress dan checklist, mahasiswa sulit mengetahui sejauh mana
+          tugas sudah dikerjakan.
+        </p>
+      </article>
+
+      <article class="problem-card">
+        <span>04</span>
+        <h3>Belajar Kurang Terarah</h3>
+        <p>
+          Tidak adanya target, planner, timer, dan refleksi membuat aktivitas
+          belajar sulit dievaluasi.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- FEATURE SECTION -->
+  <section class="landing-section" id="fitur">
+    <div class="section-heading">
+      <p class="landing-eyebrow">Fitur Utama</p>
+      <h2>Satu aplikasi untuk mengelola tugas dan produktivitas belajar.</h2>
+      <p>
+        StudyFlow menggabungkan fitur manajemen tugas, perencanaan belajar,
+        evaluasi, statistik, dan laporan agar aktivitas akademik lebih terstruktur.
+      </p>
+    </div>
+
+    <div class="feature-grid">
+      <article class="feature-card">
+        <span>01</span>
+        <h3>Manajemen Tugas</h3>
+        <p>
+          Tambahkan tugas berdasarkan nama, mata kuliah, deadline, prioritas,
+          progress, catatan, dan checklist subtugas.
+        </p>
+      </article>
+
+      <article class="feature-card">
+        <span>02</span>
+        <h3>Rekomendasi Prioritas</h3>
+        <p>
+          Sistem membantu menampilkan tugas yang paling penting berdasarkan
+          deadline, prioritas, dan progress pengerjaan.
+        </p>
+      </article>
+
+      <article class="feature-card">
+        <span>03</span>
+        <h3>Kalender Deadline</h3>
+        <p>
+          Lihat semua deadline dalam tampilan kalender agar jadwal tugas lebih
+          mudah dipahami secara visual.
+        </p>
+      </article>
+
+      <article class="feature-card">
+        <span>04</span>
+        <h3>Target Harian</h3>
+        <p>
+          Buat target kecil setiap hari agar proses belajar dan pengerjaan tugas
+          lebih fokus dan terukur.
+        </p>
+      </article>
+
+      <article class="feature-card">
+        <span>05</span>
+        <h3>Study Planner</h3>
+        <p>
+          Susun jadwal belajar berdasarkan tanggal, jam mulai, jam selesai,
+          mata kuliah, jenis kegiatan, dan catatan.
+        </p>
+      </article>
+
+      <article class="feature-card">
+        <span>06</span>
+        <h3>Focus Timer</h3>
+        <p>
+          Gunakan timer fokus untuk membantu belajar lebih disiplin dan mencatat
+          durasi fokus setiap hari.
+        </p>
+      </article>
+
+      <article class="feature-card">
+        <span>07</span>
+        <h3>Catatan Materi</h3>
+        <p>
+          Simpan ringkasan materi kuliah berdasarkan mata kuliah agar mudah
+          dicari dan dibaca ulang.
+        </p>
+      </article>
+
+      <article class="feature-card">
+        <span>08</span>
+        <h3>Refleksi Belajar</h3>
+        <p>
+          Evaluasi apa yang dipelajari, kendala yang dihadapi, mood belajar,
+          skor produktivitas, dan rencana berikutnya.
+        </p>
+      </article>
+
+      <article class="feature-card">
+        <span>09</span>
+        <h3>Statistik Produktivitas</h3>
+        <p>
+          Pantau total tugas, tugas selesai, menit fokus, catatan, refleksi,
+          rata-rata skor, dan aktivitas 7 hari terakhir.
+        </p>
+      </article>
+
+      <article class="feature-card">
+        <span>10</span>
+        <h3>Laporan PDF</h3>
+        <p>
+          Buat laporan produktivitas belajar dan download dalam bentuk PDF
+          untuk dokumentasi atau presentasi.
+        </p>
+      </article>
+
+      <article class="feature-card">
+        <span>11</span>
+        <h3>Backup Data</h3>
+        <p>
+          Export data ke file JSON dan import kembali agar data tetap aman
+          walaupun masih menggunakan localStorage.
+        </p>
+      </article>
+
+      <article class="feature-card">
+        <span>12</span>
+        <h3>Mode Gelap & Terang</h3>
+        <p>
+          Gunakan tampilan gelap atau terang sesuai kenyamanan saat belajar
+          di laptop maupun smartphone.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- BENEFITS SECTION -->
+  <section class="landing-section benefits-section" id="manfaat">
+    <div class="benefits-content">
+      <div>
+        <p class="landing-eyebrow">Kenapa StudyFlow?</p>
+        <h2>Membantu mahasiswa belajar lebih disiplin, rapi, dan terukur.</h2>
+        <p>
+          StudyFlow tidak hanya menyimpan daftar tugas. Aplikasi ini membantu
+          mahasiswa memahami prioritas, mengatur waktu, mencatat proses belajar,
+          dan mengevaluasi produktivitas secara mandiri.
+        </p>
+      </div>
+
+      <div class="benefit-list">
+        <div>
+          <strong>Lebih Terstruktur</strong>
+          <span>Semua tugas, catatan, jadwal, dan refleksi tersimpan dalam satu aplikasi.</span>
+        </div>
+
+        <div>
+          <strong>Prioritas Lebih Jelas</strong>
+          <span>Sistem membantu menampilkan tugas yang perlu dikerjakan lebih dulu.</span>
+        </div>
+
+        <div>
+          <strong>Progress Lebih Terpantau</strong>
+          <span>Checklist, progress, kalender, dan statistik membuat perkembangan lebih terlihat.</span>
+        </div>
+
+        <div>
+          <strong>Siap Dipresentasikan</strong>
+          <span>Landing page, dashboard, admin, laporan PDF, dan backup membuat project terlihat lengkap.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="landing-section workflow-section" id="alur">
+    <div class="section-heading">
+      <p class="landing-eyebrow">Cara Kerja</p>
+      <h2>Alur sederhana untuk membuat belajar lebih terarah.</h2>
+      <p>
+        StudyFlow dirancang agar pengguna dapat langsung memahami cara memakai
+        aplikasi tanpa proses yang rumit.
+      </p>
+    </div>
+
+    <div class="workflow-grid">
+      <article class="workflow-card">
+        <span>1</span>
+        <h3>Tambahkan Data Akademik</h3>
+        <p>
+          Masukkan mata kuliah, tugas, deadline, prioritas, progress, dan
+          checklist subtugas.
+        </p>
+      </article>
+
+      <article class="workflow-card">
+        <span>2</span>
+        <h3>Atur Rencana Belajar</h3>
+        <p>
+          Buat target harian, susun study planner, dan gunakan focus timer untuk
+          belajar lebih fokus.
+        </p>
+      </article>
+
+      <article class="workflow-card">
+        <span>3</span>
+        <h3>Pantau dan Evaluasi</h3>
+        <p>
+          Lihat dashboard, kalender, statistik, catatan materi, serta isi
+          refleksi belajar harian.
+        </p>
+      </article>
+
+      <article class="workflow-card">
+        <span>4</span>
+        <h3>Buat Laporan</h3>
+        <p>
+          Generate laporan produktivitas, download PDF, dan backup data agar
+          informasi tetap aman.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- PRODUCTIVITY SECTION -->
+  <section class="landing-section productivity-section">
+    <div class="productivity-card">
+      <div>
+        <p class="landing-eyebrow">Learning Analytics</p>
+        <h2>StudyFlow membantu kamu melihat perkembangan belajar, bukan hanya daftar tugas.</h2>
+        <p>
+          Dengan statistik produktivitas, grafik aktivitas 7 hari, skor refleksi,
+          dan laporan PDF, mahasiswa dapat mengevaluasi kebiasaan belajar secara
+          lebih objektif.
+        </p>
+
+        <div class="productivity-points">
+          <span>Aktivitas 7 hari</span>
+          <span>Skor refleksi</span>
+          <span>Menit fokus</span>
+          <span>Laporan PDF</span>
+        </div>
+      </div>
+
+      <div class="productivity-visual">
+        <div class="productivity-ring">
+          <strong>85%</strong>
+          <span>Produktif</span>
+        </div>
+
+        <div class="productivity-bars">
+          <span style="height: 45%"></span>
+          <span style="height: 70%"></span>
+          <span style="height: 55%"></span>
+          <span style="height: 90%"></span>
+          <span style="height: 65%"></span>
+          <span style="height: 78%"></span>
+          <span style="height: 88%"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREVIEW SECTION -->
+  <section class="landing-section preview-section" id="preview">
+    <div class="section-heading">
+      <p class="landing-eyebrow">Preview Aplikasi</p>
+      <h2>Dashboard modern untuk monitoring tugas dan aktivitas belajar.</h2>
+      <p>
+        Tampilan StudyFlow dibuat profesional, bersih, responsif, dan mudah
+        dipahami agar nyaman digunakan di laptop maupun HP.
+      </p>
+    </div>
+
+    <div class="preview-showcase">
+      <div class="showcase-sidebar">
+        <span>SF</span>
+        <p>Dashboard</p>
+        <p>Rekomendasi</p>
+        <p>Planner</p>
+        <p>Focus Timer</p>
+        <p>Statistik</p>
+        <p>Laporan</p>
+      </div>
+
+      <div class="showcase-main">
+        <div class="showcase-top">
+          <div>
+            <small>Aplikasi Mahasiswa</small>
+            <strong>Dashboard Monitoring</strong>
+          </div>
+
+          <span>Mode Terang</span>
+        </div>
+
+        <div class="showcase-hero"></div>
+
+        <div class="showcase-cards">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <div class="showcase-panel">
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADMIN SECTION -->
+  <section class="landing-section admin-landing-section">
+    <div class="admin-landing-card">
+      <div>
+        <p class="landing-eyebrow">Admin Preview</p>
+        <h2>Tersedia halaman admin untuk konsep monitoring sistem.</h2>
+        <p>
+          StudyFlow juga memiliki halaman admin yang dapat digunakan sebagai
+          rancangan panel monitoring. Pada pengembangan lanjutan, halaman admin
+          dapat dihubungkan dengan database, login, dan role pengguna.
+        </p>
+      </div>
+
+      <a href="admin.html" class="btn-landing-secondary">
+        Lihat Halaman Admin
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="landing-cta">
+    <div>
+      <p class="landing-eyebrow">Siap Digunakan</p>
+      <h2>Mulai kelola tugas kuliahmu dengan lebih profesional.</h2>
+      <p>
+        Gunakan StudyFlow untuk mencatat tugas, memantau deadline, mengatur
+        fokus belajar, melihat statistik, dan membuat laporan produktivitas.
+      </p>
+    </div>
+
+    <div class="landing-cta-actions">
+      <a href="app.html" class="btn-landing-primary">
+        Buka Dashboard
+      </a>
+
+      <a href="admin.html" class="btn-landing-secondary">
+        Buka Admin
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="lp-footer">
+    <div class="lp-footer-main">
+      <div class="lp-footer-brand">
+        <div class="lp-footer-logo">SF</div>
+
+        <div>
+          <h3>StudyFlow</h3>
+          <p>
+            Aplikasi monitoring tugas kuliah dan produktivitas belajar untuk
+            membantu siswa dan mahasiswa mengelola deadline, jadwal, catatan,
+            refleksi, statistik, laporan, dan backup data dengan lebih rapi.
+          </p>
+        </div>
+      </div>
+
+      <div class="lp-footer-links">
+        <div>
+          <h4>Navigasi</h4>
+          <a href="#home">Beranda</a>
+          <a href="#problem">Masalah</a>
+          <a href="#fitur">Fitur</a>
+          <a href="#alur">Cara Kerja</a>
+          <a href="#preview">Preview</a>
+        </div>
+
+        <div>
+          <h4>Fitur Aplikasi</h4>
+          <a href="app.html#form-section">Tambah Tugas</a>
+          <a href="app.html#planner-section">Study Planner</a>
+          <a href="app.html#focus-section">Focus Timer</a>
+          <a href="app.html#analytics-section">Statistik</a>
+          <a href="app.html#report-section">Laporan PDF</a>
+        </div>
+
+        <div>
+          <h4>Project</h4>
+          <span>Project ANSI</span>
+          <span>Semester 4</span>
+          <span>Web Application</span>
+          <span>HTML, CSS, JavaScript</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="lp-footer-bottom">
+      <p>© 2026 StudyFlow. Project Analisis dan Perancangan Sistem Informasi.</p>
+      <a href="#home">Kembali ke atas</a>
+    </div>
+  </footer>
+
+  <!-- LANDING SCRIPT -->
+  <script>
+    const landingMenuToggle = document.getElementById("landingMenuToggle");
+    const landingNavMenu = document.getElementById("landingNavMenu");
+
+    if (landingMenuToggle && landingNavMenu) {
+      landingMenuToggle.addEventListener("click", () => {
+        landingNavMenu.classList.toggle("show");
+      });
+
+      landingNavMenu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          landingNavMenu.classList.remove("show");
+        });
+      });
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener("click", function (event) {
+        const targetId = this.getAttribute("href");
+        const targetElement = document.querySelector(targetId);
+
+        if (!targetElement) return;
+
+        event.preventDefault();
+
+        targetElement.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      });
+    });
+  </script>
+</body>
+</html>

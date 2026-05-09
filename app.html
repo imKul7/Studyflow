@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>StudyFlow App - Monitoring Tugas Kuliah</title>
+
+  <meta
+    name="description"
+    content="Dashboard aplikasi StudyFlow untuk mencatat tugas, memantau deadline, mengatur prioritas, melihat progress, kalender tugas, target harian, study planner, focus timer, catatan materi, refleksi belajar, statistik produktivitas, laporan, backup data, dan riwayat aktivitas."
+  />
+
+  <link rel="stylesheet" href="style.css?v=13" />
+</head>
+
+<body>
+
+  <!-- DASHBOARD APPLICATION -->
+  <div class="app-shell" id="dashboard-app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-logo">SF</div>
+        <div>
+          <h1>StudyFlow</h1>
+          <p>Task Monitoring</p>
+        </div>
+      </div>
+
+      <nav class="menu">
+        <a href="index.html" class="menu-item">
+          <span class="menu-icon">H</span>
+          <span class="menu-text">
+            <strong>Beranda</strong>
+            <small>Kembali ke landing</small>
+          </span>
+        </a>
+
+        <a href="#dashboard-app" class="menu-item active">
+          <span class="menu-icon">D</span>
+          <span class="menu-text">
+            <strong>Dashboard</strong>
+            <small>Ringkasan tugas</small>
+          </span>
+        </a>
+
+        <a href="#recommendation-section" class="menu-item">
+          <span class="menu-icon">!</span>
+          <span class="menu-text">
+            <strong>Rekomendasi</strong>
+            <small>Tugas prioritas</small>
+          </span>
+        </a>
+
+        <a href="#form-section" class="menu-item">
+          <span class="menu-icon">+</span>
+          <span class="menu-text">
+            <strong>Tambah Tugas</strong>
+            <small>Input tugas baru</small>
+          </span>
+        </a>
+
+        <a href="#subject-section" class="menu-item">
+          <span class="menu-icon">M</span>
+          <span class="menu-text">
+            <strong>Mata Kuliah</strong>
+            <small>Kategori tugas</small>
+          </span>
+        </a>
+
+        <a href="#target-section" class="menu-item">
+          <span class="menu-icon">T</span>
+          <span class="menu-text">
+            <strong>Target Harian</strong>
+            <small>Rencana hari ini</small>
+          </span>
+        </a>
+
+        <a href="#planner-section" class="menu-item">
+          <span class="menu-icon">P</span>
+          <span class="menu-text">
+            <strong>Study Planner</strong>
+            <small>Jadwal belajar</small>
+          </span>
+        </a>
+
+        <a href="#focus-section" class="menu-item">
+          <span class="menu-icon">F</span>
+          <span class="menu-text">
+            <strong>Focus Timer</strong>
+            <small>Mode fokus belajar</small>
+          </span>
+        </a>
+
+        <a href="#note-section" class="menu-item">
+          <span class="menu-icon">N</span>
+          <span class="menu-text">
+            <strong>Catatan Materi</strong>
+            <small>Ringkasan belajar</small>
+          </span>
+        </a>
+
+        <a href="#reflection-section" class="menu-item">
+          <span class="menu-icon">B</span>
+          <span class="menu-text">
+            <strong>Refleksi Belajar</strong>
+            <small>Evaluasi harian</small>
+          </span>
+        </a>
+
+        <a href="#analytics-section" class="menu-item">
+          <span class="menu-icon">S</span>
+          <span class="menu-text">
+            <strong>Statistik</strong>
+            <small>Analisis belajar</small>
+          </span>
+        </a>
+
+        <a href="#report-section" class="menu-item">
+          <span class="menu-icon">L</span>
+          <span class="menu-text">
+            <strong>Laporan</strong>
+            <small>Export & backup</small>
+          </span>
+        </a>
+
+        <a href="#calendar-section" class="menu-item">
+          <span class="menu-icon">K</span>
+          <span class="menu-text">
+            <strong>Kalender</strong>
+            <small>Lihat deadline tugas</small>
+          </span>
+        </a>
+
+        <a href="#history-section" class="menu-item">
+          <span class="menu-icon">R</span>
+          <span class="menu-text">
+            <strong>Riwayat</strong>
+            <small>Aktivitas tugas</small>
+          </span>
+        </a>
+
+        <a href="admin.html" class="menu-item">
+          <span class="menu-icon">A</span>
+          <span class="menu-text">
+            <strong>Admin</strong>
+            <small>Panel monitoring</small>
+          </span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <p>Project ANSI</p>
+        <strong>Monitoring Tugas Kuliah</strong>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+      <!-- TOP BAR -->
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Aplikasi Mahasiswa</p>
+          <h2>Dashboard Monitoring Tugas</h2>
+        </div>
+
+        <div class="topbar-right">
+          <button class="theme-toggle" id="themeToggle" type="button">
+            Mode Gelap
+          </button>
+
+          <div class="date-box">
+            <span id="todayDate">Hari ini</span>
+          </div>
+
+          <div class="user-chip">
+            <div class="avatar">M</div>
+            <div>
+              <span>Mahasiswa</span>
+              <small>Semester 4</small>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- HERO SECTION -->
+      <section class="hero">
+        <div class="hero-content">
+          <p class="eyebrow">Kelola tugas dengan lebih rapi</p>
+          <h3>Jangan biarkan deadline mengejar kamu.</h3>
+          <p>
+            Catat tugas kuliah, pantau progres, atur prioritas, dan selesaikan
+            pekerjaan tepat waktu dalam satu dashboard yang simpel dan profesional.
+          </p>
+        </div>
+
+        <div class="hero-card">
+          <span>Deadline Terdekat</span>
+          <strong id="nearestDeadline">Belum ada tugas</strong>
+          <p id="nearestCourse">Tambahkan tugas pertamamu</p>
+        </div>
+      </section>
+
+      <!-- STATISTICS -->
+      <section class="stats-grid">
+        <article class="stat-card">
+          <div>
+            <p>Total Tugas</p>
+            <h3 id="statTotal">0</h3>
+          </div>
+          <span class="stat-icon">01</span>
+        </article>
+
+        <article class="stat-card">
+          <div>
+            <p>Belum Selesai</p>
+            <h3 id="statActive">0</h3>
+          </div>
+          <span class="stat-icon">02</span>
+        </article>
+
+        <article class="stat-card">
+          <div>
+            <p>Selesai</p>
+            <h3 id="statDone">0</h3>
+          </div>
+          <span class="stat-icon">03</span>
+        </article>
+
+        <article class="stat-card urgent">
+          <div>
+            <p>Deadline Dekat</p>
+            <h3 id="statUrgent">0</h3>
+          </div>
+          <span class="stat-icon">04</span>
+        </article>
+      </section>
+
+      <!-- RECOMMENDATION SECTION -->
+      <section class="panel recommendation-panel" id="recommendation-section">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Rekomendasi Otomatis</p>
+            <h3>Prioritas Tugas Hari Ini</h3>
+          </div>
+          <span class="panel-badge">Smart</span>
+        </div>
+
+        <div id="recommendationList" class="recommendation-list"></div>
+
+        <div id="emptyRecommendation" class="empty-state">
+          <div class="empty-icon">!</div>
+          <h4>Belum ada rekomendasi</h4>
+          <p>
+            Tambahkan tugas terlebih dahulu agar sistem dapat memberikan rekomendasi prioritas.
+          </p>
+        </div>
+      </section>
+
+      <!-- SUBJECT SECTION -->
+      <section class="panel subject-panel" id="subject-section">
+        <div class="panel-header subject-header">
+          <div>
+            <p class="eyebrow">Kategori Akademik</p>
+            <h3>Kelola Mata Kuliah</h3>
+          </div>
+          <span class="panel-badge">Matkul</span>
+        </div>
+
+        <form id="subjectForm" class="subject-form">
+          <div class="form-group">
+            <label for="subjectNameInput">Nama Mata Kuliah</label>
+            <input
+              type="text"
+              id="subjectNameInput"
+              placeholder="Contoh: Pemrograman Web"
+              required
+            />
+          </div>
+
+          <button type="submit" class="btn-primary">
+            Tambah Mata Kuliah
+          </button>
+        </form>
+
+        <div id="subjectList" class="subject-list"></div>
+
+        <div id="emptySubject" class="empty-state">
+          <div class="empty-icon">M</div>
+          <h4>Belum ada mata kuliah</h4>
+          <p>
+            Tambahkan mata kuliah agar tugas bisa dikategorikan dengan lebih rapi.
+          </p>
+        </div>
+      </section>
+
+      <!-- DAILY TARGET SECTION -->
+      <section class="panel target-panel" id="target-section">
+        <div class="panel-header target-header">
+          <div>
+            <p class="eyebrow">Produktivitas Harian</p>
+            <h3>Target Harian</h3>
+          </div>
+          <span class="panel-badge">Today</span>
+        </div>
+
+        <div class="target-summary">
+          <div>
+            <h4>Progress Target Hari Ini</h4>
+            <p id="targetProgressText">Belum ada target hari ini.</p>
+          </div>
+
+          <div class="target-progress-track">
+            <span id="targetProgressFill"></span>
+          </div>
+        </div>
+
+        <form id="targetForm" class="target-form">
+          <div class="form-group">
+            <label for="targetInput">Tambah Target</label>
+            <input
+              type="text"
+              id="targetInput"
+              placeholder="Contoh: Selesaikan 50% Project ANSI"
+              required
+            />
+          </div>
+
+          <button type="submit" class="btn-primary">
+            Tambah Target
+          </button>
+        </form>
+
+        <div id="targetList" class="target-list"></div>
+
+        <div id="emptyTarget" class="empty-state">
+          <div class="empty-icon">T</div>
+          <h4>Belum ada target harian</h4>
+          <p>
+            Tambahkan target kecil untuk membantu kamu lebih fokus hari ini.
+          </p>
+        </div>
+      </section>
+
+      <!-- STUDY PLANNER SECTION -->
+      <section class="panel planner-panel" id="planner-section">
+        <div class="panel-header planner-header">
+          <div>
+            <p class="eyebrow">Rencana Belajar</p>
+            <h3>Study Planner</h3>
+          </div>
+          <span class="panel-badge">Planner</span>
+        </div>
+
+        <form id="plannerForm" class="planner-form">
+          <div class="form-group">
+            <label for="plannerTitleInput">Judul Kegiatan</label>
+            <input
+              type="text"
+              id="plannerTitleInput"
+              placeholder="Contoh: Belajar Use Case Diagram"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="plannerSubjectSelect">Mata Kuliah</label>
+            <select id="plannerSubjectSelect" required>
+              <option value="">Pilih mata kuliah</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="plannerDateInput">Tanggal</label>
+              <input type="date" id="plannerDateInput" required />
+            </div>
+
+            <div class="form-group">
+              <label for="plannerStartInput">Jam Mulai</label>
+              <input type="time" id="plannerStartInput" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="plannerEndInput">Jam Selesai</label>
+              <input type="time" id="plannerEndInput" required />
+            </div>
+
+            <div class="form-group">
+              <label for="plannerTypeInput">Jenis Kegiatan</label>
+              <select id="plannerTypeInput" required>
+                <option value="">Pilih jenis</option>
+                <option value="Belajar">Belajar</option>
+                <option value="Mengerjakan Tugas">Mengerjakan Tugas</option>
+                <option value="Review Materi">Review Materi</option>
+                <option value="Diskusi Kelompok">Diskusi Kelompok</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="plannerNoteInput">Catatan</label>
+            <textarea
+              id="plannerNoteInput"
+              rows="3"
+              placeholder="Tambahkan catatan singkat untuk rencana belajar..."
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary">
+            Tambah Jadwal Belajar
+          </button>
+        </form>
+
+        <div id="plannerList" class="planner-list"></div>
+
+        <div id="emptyPlanner" class="empty-state">
+          <div class="empty-icon">P</div>
+          <h4>Belum ada jadwal belajar</h4>
+          <p>
+            Tambahkan jadwal belajar agar waktu kamu lebih terarah dan produktif.
+          </p>
+        </div>
+      </section>
+
+      <!-- FOCUS TIMER SECTION -->
+      <section class="panel focus-panel" id="focus-section">
+        <div class="panel-header focus-header">
+          <div>
+            <p class="eyebrow">Mode Fokus</p>
+            <h3>Focus Timer</h3>
+          </div>
+          <span class="panel-badge">Pomodoro</span>
+        </div>
+
+        <div class="focus-layout">
+          <div class="focus-settings">
+            <div class="form-group">
+              <label for="focusTaskSelect">Pilih Tugas Fokus</label>
+              <select id="focusTaskSelect">
+                <option value="">Tanpa tugas khusus</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="focusMinutesInput">Durasi Fokus</label>
+                <input
+                  type="number"
+                  id="focusMinutesInput"
+                  min="5"
+                  max="120"
+                  value="25"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="breakMinutesInput">Durasi Istirahat</label>
+                <input
+                  type="number"
+                  id="breakMinutesInput"
+                  min="1"
+                  max="60"
+                  value="5"
+                />
+              </div>
+            </div>
+
+            <div class="focus-info-card">
+              <strong>Tips Fokus</strong>
+              <p>
+                Pilih satu tugas, mulai timer, lalu hindari membuka aplikasi lain
+                sampai sesi fokus selesai.
+              </p>
+            </div>
+          </div>
+
+          <div class="focus-timer-card">
+            <span class="focus-mode-pill" id="focusModeText">Mode Fokus</span>
+
+            <div class="focus-timer-display" id="focusTimerDisplay">
+              25:00
+            </div>
+
+            <p id="focusSelectedTaskText">
+              Pilih tugas atau mulai sesi fokus bebas.
+            </p>
+
+            <div class="focus-actions">
+              <button type="button" class="btn-primary" id="focusStartBtn">
+                Mulai
+              </button>
+
+              <button type="button" class="btn-secondary" id="focusPauseBtn">
+                Pause
+              </button>
+
+              <button type="button" class="btn-secondary" id="focusResetBtn">
+                Reset
+              </button>
+
+              <button type="button" class="btn-primary" id="focusCompleteBtn">
+                Selesai Sesi
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="focus-stats">
+          <div>
+            <span>Sesi Fokus Hari Ini</span>
+            <strong id="focusSessionsToday">0</strong>
+          </div>
+
+          <div>
+            <span>Total Menit Fokus</span>
+            <strong id="focusMinutesToday">0</strong>
+          </div>
+        </div>
+      </section>
+
+      <!-- NOTE SECTION -->
+      <section class="panel note-panel" id="note-section">
+        <div class="panel-header note-header">
+          <div>
+            <p class="eyebrow">Catatan Akademik</p>
+            <h3>Catatan Materi Kuliah</h3>
+          </div>
+          <span class="panel-badge">Notes</span>
+        </div>
+
+        <form id="noteForm" class="note-form">
+          <div class="form-group">
+            <label for="noteSubjectSelect">Mata Kuliah</label>
+            <select id="noteSubjectSelect" required>
+              <option value="">Pilih mata kuliah</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="noteTitleInput">Judul Catatan</label>
+            <input
+              type="text"
+              id="noteTitleInput"
+              placeholder="Contoh: Use Case Diagram"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="noteContentInput">Isi Catatan</label>
+            <textarea
+              id="noteContentInput"
+              rows="5"
+              placeholder="Tulis ringkasan materi, poin penting, rumus, atau referensi belajar..."
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary">
+            Simpan Catatan
+          </button>
+        </form>
+
+        <div class="note-toolbar">
+          <input
+            type="text"
+            id="noteSearchInput"
+            placeholder="Cari catatan berdasarkan judul, mata kuliah, atau isi..."
+          />
+        </div>
+
+        <div id="noteList" class="note-list"></div>
+
+        <div id="emptyNote" class="empty-state">
+          <div class="empty-icon">N</div>
+          <h4>Belum ada catatan materi</h4>
+          <p>
+            Tambahkan catatan materi agar rangkuman belajar kamu tersimpan rapi.
+          </p>
+        </div>
+      </section>
+
+      <!-- REFLECTION SECTION -->
+      <section class="panel reflection-panel" id="reflection-section">
+        <div class="panel-header reflection-header">
+          <div>
+            <p class="eyebrow">Evaluasi Belajar</p>
+            <h3>Refleksi Belajar Harian</h3>
+          </div>
+          <span class="panel-badge">Reflection</span>
+        </div>
+
+        <div class="reflection-summary">
+          <div>
+            <h4>Produktivitas Hari Ini</h4>
+            <p id="reflectionSummaryText">Belum ada refleksi hari ini.</p>
+          </div>
+
+          <div class="reflection-score-box">
+            <span id="reflectionAverageScore">0</span>
+            <small>/ 10</small>
+          </div>
+        </div>
+
+        <form id="reflectionForm" class="reflection-form">
+          <div class="form-group">
+            <label for="reflectionDateInput">Tanggal Refleksi</label>
+            <input type="date" id="reflectionDateInput" required />
+          </div>
+
+          <div class="form-group">
+            <label for="reflectionLearnedInput">Apa yang dipelajari hari ini?</label>
+            <textarea
+              id="reflectionLearnedInput"
+              rows="4"
+              placeholder="Contoh: Hari ini saya belajar use case diagram dan relasi antar aktor."
+              required
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="reflectionProblemInput">Kendala yang dihadapi</label>
+            <textarea
+              id="reflectionProblemInput"
+              rows="3"
+              placeholder="Contoh: Masih bingung membedakan include dan extend."
+            ></textarea>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="reflectionScoreInput">Skor Produktivitas</label>
+              <select id="reflectionScoreInput" required>
+                <option value="">Pilih skor</option>
+                <option value="10">10 - Sangat produktif</option>
+                <option value="9">9 - Produktif sekali</option>
+                <option value="8">8 - Produktif</option>
+                <option value="7">7 - Cukup produktif</option>
+                <option value="6">6 - Lumayan</option>
+                <option value="5">5 - Biasa saja</option>
+                <option value="4">4 - Kurang fokus</option>
+                <option value="3">3 - Banyak kendala</option>
+                <option value="2">2 - Tidak produktif</option>
+                <option value="1">1 - Sangat tidak produktif</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="reflectionMoodInput">Mood Belajar</label>
+              <select id="reflectionMoodInput" required>
+                <option value="">Pilih mood</option>
+                <option value="Semangat">Semangat</option>
+                <option value="Tenang">Tenang</option>
+                <option value="Biasa saja">Biasa saja</option>
+                <option value="Lelah">Lelah</option>
+                <option value="Kurang fokus">Kurang fokus</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="reflectionPlanInput">Rencana belajar berikutnya</label>
+            <textarea
+              id="reflectionPlanInput"
+              rows="3"
+              placeholder="Contoh: Besok lanjut membuat activity diagram dan memperbaiki proposal."
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary">
+            Simpan Refleksi
+          </button>
+        </form>
+
+        <div id="reflectionList" class="reflection-list"></div>
+
+        <div id="emptyReflection" class="empty-state">
+          <div class="empty-icon">B</div>
+          <h4>Belum ada refleksi belajar</h4>
+          <p>
+            Tambahkan refleksi harian untuk melihat perkembangan proses belajarmu.
+          </p>
+        </div>
+      </section>
+
+      <!-- ANALYTICS SECTION -->
+      <section class="panel analytics-panel" id="analytics-section">
+        <div class="panel-header analytics-header">
+          <div>
+            <p class="eyebrow">Learning Analytics</p>
+            <h3>Statistik Produktivitas Belajar</h3>
+          </div>
+          <span class="panel-badge">Insight</span>
+        </div>
+
+        <div class="analytics-grid">
+          <article class="analytics-card">
+            <span>Total Tugas</span>
+            <strong id="analyticsTotalTasks">0</strong>
+            <p>Jumlah semua tugas yang tersimpan.</p>
+          </article>
+
+          <article class="analytics-card">
+            <span>Tugas Selesai</span>
+            <strong id="analyticsDoneTasks">0</strong>
+            <p>Total tugas yang sudah diselesaikan.</p>
+          </article>
+
+          <article class="analytics-card">
+            <span>Menit Fokus</span>
+            <strong id="analyticsFocusMinutes">0</strong>
+            <p>Total menit fokus minggu ini.</p>
+          </article>
+
+          <article class="analytics-card">
+            <span>Catatan Materi</span>
+            <strong id="analyticsNotesCount">0</strong>
+            <p>Total catatan materi yang dibuat.</p>
+          </article>
+
+          <article class="analytics-card">
+            <span>Refleksi Belajar</span>
+            <strong id="analyticsReflectionCount">0</strong>
+            <p>Total refleksi belajar yang tersimpan.</p>
+          </article>
+
+          <article class="analytics-card">
+            <span>Rata-rata Skor</span>
+            <strong id="analyticsAverageReflection">0</strong>
+            <p>Rata-rata skor refleksi belajar.</p>
+          </article>
+        </div>
+
+        <div class="analytics-chart-card">
+          <div class="analytics-chart-header">
+            <div>
+              <h4>Aktivitas 7 Hari Terakhir</h4>
+              <p>Gabungan tugas selesai, sesi fokus, catatan, dan refleksi.</p>
+            </div>
+          </div>
+
+          <div id="weeklyActivityChart" class="weekly-chart"></div>
+        </div>
+
+        <div class="analytics-insight-box">
+          <strong>Insight Belajar</strong>
+          <p id="analyticsInsightText">
+            Data produktivitas akan muncul setelah kamu mulai menambahkan tugas,
+            sesi fokus, catatan, dan refleksi belajar.
+          </p>
+        </div>
+      </section>
+
+      <!-- REPORT SECTION -->
+      <section class="panel report-panel" id="report-section">
+        <div class="panel-header report-header">
+          <div>
+            <p class="eyebrow">Laporan Akademik</p>
+            <h3>Laporan & Backup Data StudyFlow</h3>
+          </div>
+          <span class="panel-badge">Final</span>
+        </div>
+
+        <div class="report-actions">
+          <button type="button" class="btn-primary" id="generateReportBtn">
+            Buat Laporan
+          </button>
+
+          <button type="button" class="btn-secondary" id="printReportBtn">
+  Download PDF
+</button>
+
+          <button type="button" class="btn-secondary" id="exportBackupBtn">
+            Export Backup
+          </button>
+
+          <button type="button" class="btn-secondary" id="importBackupBtn">
+            Import Backup
+          </button>
+
+          <input
+            type="file"
+            id="backupFileInput"
+            accept="application/json"
+            class="hidden"
+          />
+        </div>
+
+        <div class="report-info">
+          <strong>Status Laporan</strong>
+          <p id="reportGeneratedAt">
+            Laporan belum dibuat. Klik tombol “Buat Laporan” untuk menampilkan ringkasan data.
+          </p>
+        </div>
+
+        <div id="reportPreview" class="report-preview">
+          <div class="empty-state">
+            <div class="empty-icon">L</div>
+            <h4>Belum ada laporan</h4>
+            <p>
+              Laporan akan berisi ringkasan tugas, deadline, sesi fokus, catatan materi,
+              refleksi belajar, dan insight produktivitas.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTENT GRID -->
+      <section class="content-grid">
+
+        <!-- FORM SECTION -->
+        <section class="panel form-panel" id="form-section">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Input Data</p>
+              <h3>Tambah Tugas Baru</h3>
+            </div>
+            <span class="panel-badge">Form</span>
+          </div>
+
+          <form id="taskForm" class="task-form">
+            <input type="hidden" id="taskId" />
+
+            <div class="form-group">
+              <label for="taskName">Nama Tugas</label>
+              <input
+                type="text"
+                id="taskName"
+                placeholder="Contoh: Membuat Use Case Diagram"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="courseName">Mata Kuliah</label>
+              <select id="courseName" required>
+                <option value="">Pilih mata kuliah</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="deadlineDate">Deadline</label>
+                <input type="date" id="deadlineDate" required />
+              </div>
+
+              <div class="form-group">
+                <label for="priorityLevel">Prioritas</label>
+                <select id="priorityLevel" required>
+                  <option value="">Pilih prioritas</option>
+                  <option value="Tinggi">Tinggi</option>
+                  <option value="Sedang">Sedang</option>
+                  <option value="Rendah">Rendah</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="progressValue">Progress Pengerjaan</label>
+              <select id="progressValue" required>
+                <option value="0">0% - Belum mulai</option>
+                <option value="25">25% - Mulai dikerjakan</option>
+                <option value="50">50% - Setengah selesai</option>
+                <option value="75">75% - Hampir selesai</option>
+                <option value="100">100% - Selesai</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="taskNote">Catatan</label>
+              <textarea
+                id="taskNote"
+                rows="4"
+                placeholder="Tambahkan catatan singkat, detail tugas, atau link referensi..."
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="subtasksInput">Checklist Subtugas</label>
+              <textarea
+                id="subtasksInput"
+                rows="4"
+                placeholder="Tulis subtugas satu per baris. Contoh:&#10;Buat proposal&#10;Buat use case diagram&#10;Buat ERD"
+              ></textarea>
+              <small class="form-hint">
+                Pisahkan setiap subtugas dengan baris baru. Progress akan dihitung otomatis dari checklist.
+              </small>
+            </div>
+
+            <button type="submit" class="btn-primary" id="submitButton">
+              Simpan Tugas
+            </button>
+
+            <button type="button" class="btn-secondary hidden" id="cancelEditButton">
+              Batalkan Edit
+            </button>
+          </form>
+        </section>
+
+        <!-- SUMMARY PANEL -->
+        <section class="panel summary-panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Progress</p>
+              <h3>Ringkasan Produktivitas</h3>
+            </div>
+            <span class="panel-badge">Live</span>
+          </div>
+
+          <div class="overall-progress">
+            <div class="progress-circle">
+              <span id="completionRate">0%</span>
+            </div>
+            <div>
+              <h4>Tingkat Penyelesaian</h4>
+              <p>
+                Semakin tinggi persentasenya, semakin baik manajemen tugas kuliahmu.
+              </p>
+            </div>
+          </div>
+
+          <div class="mini-info">
+            <div>
+              <span>Tugas Prioritas Tinggi</span>
+              <strong id="highPriorityCount">0</strong>
+            </div>
+
+            <div>
+              <span>Tugas Hari Ini</span>
+              <strong id="todayTaskCount">0</strong>
+            </div>
+
+            <div>
+              <span>Lewat Deadline</span>
+              <strong id="overdueCount">0</strong>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- CALENDAR VIEW -->
+      <section class="panel calendar-panel" id="calendar-section">
+        <div class="panel-header calendar-header">
+          <div>
+            <p class="eyebrow">Kalender Deadline</p>
+            <h3>Kalender Tugas Kuliah</h3>
+          </div>
+
+          <div class="calendar-controls">
+            <button type="button" id="prevMonthBtn">Sebelumnya</button>
+            <span id="calendarMonthTitle">Bulan</span>
+            <button type="button" id="nextMonthBtn">Berikutnya</button>
+          </div>
+        </div>
+
+        <div class="calendar-weekdays">
+          <span>Min</span>
+          <span>Sen</span>
+          <span>Sel</span>
+          <span>Rab</span>
+          <span>Kam</span>
+          <span>Jum</span>
+          <span>Sab</span>
+        </div>
+
+        <div class="calendar-grid" id="calendarGrid"></div>
+      </section>
+
+      <!-- HISTORY SECTION -->
+      <section class="panel history-panel" id="history-section">
+        <div class="panel-header history-header">
+          <div>
+            <p class="eyebrow">Riwayat Aktivitas</p>
+            <h3>Riwayat Tugas</h3>
+          </div>
+
+          <button type="button" class="btn-clear-history" id="clearHistoryBtn">
+            Bersihkan Riwayat
+          </button>
+        </div>
+
+        <div id="historyList" class="history-list"></div>
+
+        <div id="emptyHistory" class="empty-state">
+          <div class="empty-icon">R</div>
+          <h4>Belum ada riwayat</h4>
+          <p>
+            Aktivitas seperti tambah, edit, hapus, dan ubah status tugas akan muncul di sini.
+          </p>
+        </div>
+      </section>
+
+      <!-- TASK LIST -->
+      <section class="panel task-panel" id="task-section">
+        <div class="panel-header task-header">
+          <div>
+            <p class="eyebrow">Manajemen Tugas</p>
+            <h3>Daftar Tugas Kuliah</h3>
+          </div>
+
+          <div class="filter-group">
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Cari tugas atau mata kuliah..."
+            />
+
+            <select id="statusFilter">
+              <option value="Semua">Semua Status</option>
+              <option value="Belum Selesai">Belum Selesai</option>
+              <option value="Selesai">Selesai</option>
+            </select>
+
+            <select id="priorityFilter">
+              <option value="Semua">Semua Prioritas</option>
+              <option value="Tinggi">Tinggi</option>
+              <option value="Sedang">Sedang</option>
+              <option value="Rendah">Rendah</option>
+            </select>
+
+            <select id="sortFilter">
+              <option value="deadline">Deadline Terdekat</option>
+              <option value="priority">Prioritas Tertinggi</option>
+              <option value="progress">Progress Tertinggi</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="taskList" class="task-list"></div>
+
+        <div id="emptyState" class="empty-state">
+          <div class="empty-icon">SF</div>
+          <h4>Belum ada tugas</h4>
+          <p>
+            Tambahkan tugas pertamamu agar dashboard mulai menampilkan data.
+          </p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="toast hidden">
+    <span id="toastMessage">Berhasil</span>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="script.js?v=14"></script>
+</body>
+</html>
